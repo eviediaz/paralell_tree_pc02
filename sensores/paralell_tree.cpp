@@ -25,7 +25,7 @@ double ParalellTree::calculateMaxAverageInternal(SensorTree* node_ptr) {
 
   double max_avg_left = 0.0, max_avg_right = 0.0;
 
-#pragma omp parallel sections reduction(max : max_avg_left, max_avg_right)
+#pragma omp parallel sections
   {
 #pragma omp section
     {
