@@ -24,9 +24,10 @@ void inicializa() {
     if(s_arbol_datos == nullptr && p_arbol_datos == nullptr) {
       s_arbol_datos = new SequentialTree(tmp);
       p_arbol_datos = new ParalellTree(tmp);
-    } else
+    } else {
       s_arbol_datos->insert(tmp);
-    p_arbol_datos->insert(tmp);
+      p_arbol_datos->insert(tmp);
+    }
   }
 }
 
