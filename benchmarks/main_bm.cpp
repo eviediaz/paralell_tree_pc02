@@ -21,7 +21,7 @@ void inicializa() {
     std::vector<double> tmp(NUMERO_ELEMENTOS);
     for(int j = 0; j < NUMERO_ELEMENTOS; ++j) tmp[j] = uni_dis(gen);
 
-    if(arbol_datos == nullptr) {
+    if(s_arbol_datos == nullptr && p_arbol_datos == nullptr) {
       s_arbol_datos = new SequentialTree(tmp);
       p_arbol_datos = new ParalellTree(tmp);
     } else
