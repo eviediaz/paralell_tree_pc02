@@ -114,7 +114,7 @@ TEST(ParalellTest, pruebaThreadSafe) {
   const int NUMERO_ELEMENTOS = 5;
   const int NUMERO_VECTORES = 20;
 
-  paralellTree* arbol_ref = nullptr;
+  ParalellTree* arbol_ref = nullptr;
 
   for(int i = 0; i < NUMERO_VECTORES; i++) {
     std::vector<double> tmp(NUMERO_ELEMENTOS);
