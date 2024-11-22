@@ -25,19 +25,19 @@ double ParalellTree::calculateMaxAverageInternal(SensorTree* node_ptr) {
 
   double max_avg_left = 0.0, max_avg_right = 0.0;
 
-#pragma omp parallel sections
+#pragma omp parallel
   {
-#pragma omp section
+#pragma omp single
     {
+      // Crear tareas para los subárboles izquierdo y derecho
       if(node_ptr->left != nullptr) {
-        max_avg_left = calculateMaxAverageInternal(node_ptr->left);
+#pragma omp task
+        { calculateMaxAverageInternal(node_ptr->left); }
       }
-    }
 
-#pragma omp section
-    {
       if(node_ptr->right != nullptr) {
-        max_avg_right = calculateMaxAverageInternal(node_ptr->right);
+#pragma omp task
+        { calculateMaxAverageInternal(node_ptr->right); }
       }
     }
   }
